@@ -1,0 +1,16 @@
+{
+  "name": "megak_todo_db_mysql2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "mysql2": "^2.3.3",
+    "uuid": "^8.3.2"
+  }
+}
