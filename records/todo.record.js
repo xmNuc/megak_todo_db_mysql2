@@ -18,6 +18,31 @@ class TodoRecord {
       id: this.id,
       title: this.title,
     });
+    return this.id;
+  }
+  async delete() {
+    if (!this.id) {
+      throw new Error('todo hasno ID');
+    }
+    await pool.execute('DELETE FROM `todos` WHERE `id` = :id', {
+      id: this.id,
+    });
+  }
+  static async find(id) {
+    const [results] = await pool.execute(
+      'SELECT * FROM `todos` WHERE `id`= :id',
+      {
+        id: id,
+      }
+    );
+    return new TodoRecord(results[0]);
+  }
+  async update() {
+    await pool.execute('UPDATE `todos` SET `title` = :title WHERE `id` = :id', {
+      id: this.id,
+      title: this.title,
+    });
+    return this.id;
   }
 }
 
